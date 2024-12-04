@@ -27,6 +27,21 @@ The dataset used for this project is from Kaggle and can be found here. It consi
 
 The simple model is a basic CNN architecture. It achieved a validation accuracy of **89%** and a validation loss of **0.3701**.
 
+#### Architecture
+
+- **Input Layer**: Accepts images of size 180x180x3.
+- **Rescaling Layer**: Normalizes pixel values to the range [0, 1].
+- **Convolutional Layers**: 
+  - Conv2D with 16 filters, kernel size 3x3, ReLU activation.
+  - MaxPooling2D with pool size 2x2.
+  - Conv2D with 32 filters, kernel size 3x3, ReLU activation.
+  - MaxPooling2D with pool size 2x2.
+- **Flatten Layer**: Flattens the 3D output to 1D.
+- **Dense Layers**: 
+  - Dense with 128 units, ReLU activation.
+  - Dropout with rate 0.2.
+  - Dense with 4 units, softmax activation.
+
 !Simple Model Results
 
 !Open in Colab
@@ -34,6 +49,26 @@ The simple model is a basic CNN architecture. It achieved a validation accuracy 
 ### Augmented Model
 
 The augmented model uses data augmentation techniques to improve generalization. It achieved a validation accuracy of **83%** and a validation loss of **0.427**.
+
+#### Architecture
+
+- **Input Layer**: Accepts images of size 180x180x3.
+- **Rescaling Layer**: Normalizes pixel values to the range [0, 1].
+- **Data Augmentation Layers**: 
+  - RandomFlip for horizontal flipping.
+  - RandomRotation with a factor of 0.1.
+  - RandomZoom with a factor of 0.1.
+- **Convolutional Layers**: 
+  - Conv2D with 16 filters, kernel size 3x3, ReLU activation.
+  - MaxPooling2D with pool size 2x2.
+  - Dropout with rate 0.2.
+  - Conv2D with 32 filters, kernel size 3x3, ReLU activation.
+  - MaxPooling2D with pool size 2x2.
+  - Dropout with rate 0.2.
+- **Flatten Layer**: Flattens the 3D output to 1D.
+- **Dense Layers**: 
+  - Dense with 64 units, ReLU activation.
+  - Dense with 4 units, softmax activation.
 
 !Augmented Model Results
 
@@ -43,11 +78,30 @@ The augmented model uses data augmentation techniques to improve generalization.
 
 The SNN model incorporates temporal dynamics and STDP. Despite its complexity, it did not perform as well as the CNN models without neuromorphic hardware. It achieved a validation accuracy of **29%** and a validation loss of **2023.996**.
 
+#### Architecture
+
+- **Input Layer**: Accepts images of size 128x128x3.
+- **Rescaling Layer**: Normalizes pixel values to the range [0, 1].
+- **Convolutional Layers**: 
+  - Conv2D with 32 filters, kernel size 3x3, ReLU activation.
+  - MaxPooling2D with pool size 2x2.
+  - Conv2D with 64 filters, kernel size 3x3, ReLU activation.
+  - MaxPooling2D with pool size 2x2.
+  - Conv2D with 128 filters, kernel size 3x3, ReLU activation.
+  - MaxPooling2D with pool size 2x2.
+- **Flatten Layer**: Flattens the 3D output to 1D.
+- **Custom SNN Layer (STDP)**: 
+  - Simulates the behavior of biological neurons with temporal dynamics and spike-timing-dependent plasticity.
+- **Dense Layers**: 
+  - Dense with 64 units, ReLU activation.
+  - Dropout with rate 0.5.
+  - Dense with 4 units, softmax activation.
+
 !SNN Model Results
 
 !Open in Colab
 
-#### SNN Architecture
+#### SNN Architecture Details
 
 The SNN model was created from scratch, featuring a custom SNN layer that simulates the behavior of biological neurons. The architecture includes:
 - **Temporal Dynamics**: The membrane potential of neurons is updated over time, incorporating a decay factor and input currents.
@@ -76,7 +130,7 @@ This project demonstrates that traditional CNN models, even with basic architect
 3. **Run the models**:
     - Simple Model: Open `models/simple_model/simple_model_training.ipynb` in Google Colab and run all cells.
     - Augmented Model: Open `models/augmented_model/augmented_model_training.ipynb` in Google Colab and run all cells.
-    - SNN Model: Open `models/snn_model/snn_model_training.ipynb` in Google Colab and run all cells.
+    - SNN Model: `python models/snn_model/snn_model.py` or open `models/snn_model/snn_model_training.ipynb` in Google Colab and run all cells.
 
 ## Acknowledgements
 
@@ -85,3 +139,4 @@ This project was inspired by the need to explore different neural network archit
 ## Contact
 
 For any questions or suggestions, please contact marcosmasipcompany@gmail.com.
+
