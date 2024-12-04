@@ -15,7 +15,7 @@ The primary goal of this project is to demonstrate that traditional CNN models, 
 
 ## Dataset
 
-The dataset used for this project is from Kaggle and can be found here. It consists of MRI images categorized into four classes:
+This project uses the [Brain Tumor Dataset](https://www.kaggle.com/datasets/balamosay/brain-tumor-dataset). It consists of MRI images categorized into four classes:
 - Glioma Tumor
 - Meningioma Tumor
 - No Tumor
