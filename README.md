@@ -42,10 +42,6 @@ The simple model is a basic CNN architecture. It achieved a validation accuracy 
   - Dropout with rate 0.2.
   - Dense with 4 units, softmax activation.
 
-!Simple Model Results
-
-!Open in Colab
-
 ### Augmented Model
 
 The augmented model uses data augmentation techniques to improve generalization. It achieved a validation accuracy of **83%** and a validation loss of **0.427**.
@@ -70,10 +66,6 @@ The augmented model uses data augmentation techniques to improve generalization.
   - Dense with 64 units, ReLU activation.
   - Dense with 4 units, softmax activation.
 
-!Augmented Model Results
-
-!Open in Colab
-
 ### SNN Model
 
 The SNN model incorporates temporal dynamics and STDP. Despite its complexity, it did not perform as well as the CNN models without neuromorphic hardware. It achieved a validation accuracy of **29%** and a validation loss of **2023.996**.
@@ -96,10 +88,6 @@ The SNN model incorporates temporal dynamics and STDP. Despite its complexity, i
   - Dense with 64 units, ReLU activation.
   - Dropout with rate 0.5.
   - Dense with 4 units, softmax activation.
-
-!SNN Model Results
-
-!Open in Colab
 
 #### SNN Architecture Details
 
@@ -130,7 +118,7 @@ This project demonstrates that traditional CNN models, even with basic architect
 3. **Run the models**:
     - Simple Model: Open `models/simple_model/simple_model_training.ipynb` in Google Colab and run all cells.
     - Augmented Model: Open `models/augmented_model/augmented_model_training.ipynb` in Google Colab and run all cells.
-    - SNN Model: `python models/snn_model/snn_model.py` or open `models/snn_model/snn_model_training.ipynb` in Google Colab and run all cells.
+    - SNN Model: Open `models/snn_model/snn_model_training.ipynb` in Google Colab and run all cells.
 
 ## Acknowledgements
 
