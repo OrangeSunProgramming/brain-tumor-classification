@@ -25,7 +25,7 @@ This project uses the [Brain Tumor Dataset](https://www.kaggle.com/datasets/bala
 
 ### Simple Model
 
-The simple model is a basic CNN architecture. It achieved a validation accuracy of **89%** and a validation loss of **0.3701**.
+The simple model is a basic CNN architecture. It achieved a validation accuracy of **91%** and a validation loss of **0.353**.
 
 #### Architecture
 
@@ -39,12 +39,12 @@ The simple model is a basic CNN architecture. It achieved a validation accuracy 
 - **Flatten Layer**: Flattens the 3D output to 1D.
 - **Dense Layers**: 
   - Dense with 128 units, ReLU activation.
-  - Dropout with rate 0.2.
+  - Dropout with rate 0.5.
   - Dense with 4 units, softmax activation.
 
 ### Augmented Model
 
-The augmented model uses data augmentation techniques to improve generalization. It achieved a validation accuracy of **83%** and a validation loss of **0.427**.
+The augmented model uses data augmentation techniques to improve generalization. It achieved a validation accuracy of **84%** and a validation loss of **0.458**.
 
 #### Architecture
 
@@ -68,20 +68,24 @@ The augmented model uses data augmentation techniques to improve generalization.
 
 ### SNN Model
 
-The SNN model incorporates temporal dynamics and STDP. Despite its complexity, it did not perform as well as the CNN models without neuromorphic hardware. It achieved a validation accuracy of **29%** and a validation loss of **2023.996**.
+The SNN model incorporates temporal dynamics and STDP. Despite its complexity, it did not perform as well as the CNN models without neuromorphic hardware. It achieved a validation accuracy of **31%** and a validation loss of **2023.996**.
 
 #### Architecture
 
-- **Input Layer**: Accepts images of size 128x128x3.
+- **Input Layer**: Accepts images of size 180x180x3.
 - **Rescaling Layer**: Normalizes pixel values to the range [0, 1].
 - **Convolutional Layers**: 
   - Conv2D with 32 filters, kernel size 3x3, ReLU activation.
   - MaxPooling2D with pool size 2x2.
+  - BatchNormalization layer. 
   - Conv2D with 64 filters, kernel size 3x3, ReLU activation.
   - MaxPooling2D with pool size 2x2.
+  - BatchNormalization layer.
   - Conv2D with 128 filters, kernel size 3x3, ReLU activation.
   - MaxPooling2D with pool size 2x2.
+  - BatchNormalization layer.
 - **Flatten Layer**: Flattens the 3D output to 1D.
+- Dropout with rate 0.5.
 - **Custom SNN Layer (STDP)**: 
   - Simulates the behavior of biological neurons with temporal dynamics and spike-timing-dependent plasticity.
 - **Dense Layers**: 
@@ -116,7 +120,7 @@ This project demonstrates that traditional CNN models, even with basic architect
     ```
 
 3. **Run the models**:
-    - Simple Model: Open `models/simple_model/simple_model_training.ipynb` in Google Colab and run all cells.
+    - Simple Model: Open `models/simple_model/simple_model.ipynb` in Google Colab and run all cells.
     - Augmented Model: Open `models/augmented_model/augmented_model_training.ipynb` in Google Colab and run all cells.
     - SNN Model: Open `models/snn_model/snn_model_training.ipynb` in Google Colab and run all cells.
 
