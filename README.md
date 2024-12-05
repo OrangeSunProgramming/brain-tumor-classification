@@ -2,6 +2,8 @@
 
 This repository contains the implementation of three different models for brain tumor classification: a simple CNN model, an augmented CNN model, and a full-scale Spiking Neural Network (SNN) with temporal dynamics and spike-timing-dependent plasticity (STDP).
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OrangeSunProgramming/brain-tumor-classification/blob/main/notebooks/snn_model_training.ipynb)
+
 ## Introduction
 
 Brain tumor classification is a critical task in medical imaging, aiming to identify the type of tumor present in brain MRI images. This project compares the performance of three models on this task:
