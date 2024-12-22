@@ -1,4 +1,4 @@
-# Advanced Neural Networks for Brain Tumor Detection: CNNs vs. SNNs
+# Performance Analysis of CNNs vs. Custom SNNs in Brain Tumor Detection Without Neuromorphic Hardware
 
 This repository contains the implementation of three different models for brain tumor classification: a simple CNN model, an augmented CNN model, and a full-scale Spiking Neural Network (SNN) with temporal dynamics and spike-timing-dependent plasticity (STDP).
 
